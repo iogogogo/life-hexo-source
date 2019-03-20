@@ -104,33 +104,34 @@ import javax.sql.DataSource;
  * Created by tao.zeng on 2019-03-19.
  */
 @Configuration
-@MapperScan(basePackages = "com.iogogogo.mapper.vertica", sqlSessionTemplateRef = "verticaSqlSessionTemplate")
-public class VerticaDataSourceConfig {
+@MapperScan(basePackages = "com.iogogogo.mapper.mysql", sqlSessionTemplateRef = "mysqlSqlSessionTemplate")
+public class MySQLDataSourceConfig {
 
-    @Bean(name = "verticaDataSource")
-    @ConfigurationProperties("spring.datasource.vertica")
-    public DataSource vertica() {
+    @Bean(name = "mysqlDataSource")
+    @ConfigurationProperties("spring.datasource.mysql")
+    public DataSource mysql() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "verticaSqlSessionFactory")
-    public SqlSessionFactory verticaSqlSessionFactory(@Qualifier("verticaDataSource") DataSource dataSource) throws Exception {
+    @Bean(name = "mysqlSqlSessionFactory")
+    public SqlSessionFactory mysqlSqlSessionFactory(@Qualifier("mysqlDataSource") DataSource dataSource) throws Exception {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         // 给MyBatis-Plus注入数据源
         bean.setDataSource(dataSource);
         return bean.getObject();
     }
 
-    @Bean(name = "verticaTransactionManager")
-    public DataSourceTransactionManager verticaTransactionManager(@Qualifier("verticaDataSource") DataSource dataSource) {
+    @Bean(name = "mysqlTransactionManager")
+    public DataSourceTransactionManager mysqlTransactionManager(@Qualifier("mysqlDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(name = "verticaSqlSessionTemplate")
-    public SqlSessionTemplate verticaSqlSessionTemplate(@Qualifier("verticaSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+    @Bean(name = "mysqlSqlSessionTemplate")
+    public SqlSessionTemplate mysqlSqlSessionTemplate(@Qualifier("mysqlSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }
+
 ```
 
 
