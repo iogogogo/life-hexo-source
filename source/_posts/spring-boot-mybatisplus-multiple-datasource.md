@@ -82,24 +82,18 @@ mybatis-plus:
 
 ```
 
-## MySQL数据源配置
-
-### 连接池配置
+## HikariCP 配置
 
 ```java
-package com.iogogogo.datasource.configure;
+package com.iogogogo.datasource.config;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by tao.zeng on 2019-03-20.
  */
 @Data
-@Configuration
-@ConfigurationProperties(prefix = "spring.datasource.mysql.hikari")
-public class HikariMySQLConfig {
+public class HikariConfig {
 
     private String poolName;
 
@@ -117,7 +111,31 @@ public class HikariMySQLConfig {
 
     private String connectionTestQuery;
 }
+```
 
+
+
+## MySQL数据源配置
+
+### 连接池配置
+
+```java
+package com.iogogogo.datasource.config;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * Created by tao.zeng on 2019-03-20.
+ */
+@Data
+@Configuration
+@EqualsAndHashCode(callSuper = true)
+@ConfigurationProperties(prefix = "spring.datasource.mysql.hikari")
+public class HikariMySQLConfig extends HikariConfig {
+}
 ```
 
 ### DataSource配置
@@ -201,9 +219,10 @@ public class MySQLDataSourceConfigure {
 ### 连接池配置
 
 ```java
-package com.iogogogo.datasource.configure;
+package com.iogogogo.datasource.config;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -212,26 +231,10 @@ import org.springframework.context.annotation.Configuration;
  */
 @Data
 @Configuration
+@EqualsAndHashCode(callSuper = true)
 @ConfigurationProperties(prefix = "spring.datasource.vertica.hikari")
-public class HikariVerticaConfig {
-
-    private String poolName;
-
-    private boolean autoCommit;
-
-    private long connectionTimeout;
-
-    private long idleTimeout;
-
-    private long maxLifetime;
-
-    private int maximumPoolSize;
-
-    private int minimumIdle;
-
-    private String connectionTestQuery;
+public class HikariVerticaConfig extends HikariConfig {
 }
-
 ```
 
 ### DataSource配置
