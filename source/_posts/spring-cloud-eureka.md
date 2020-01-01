@@ -2,6 +2,7 @@
 title: Spring Cloud Eureka 注册中心
 date: 2019-03-17 16:41:17
 tags: Spring Cloud
+categories: Spring Cloud
 ---
 
 # 什么是Spring Cloud

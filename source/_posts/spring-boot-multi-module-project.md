@@ -2,6 +2,7 @@
 title: Maven构建Spring-Boot多模块项目
 date: 2019-07-27 11:18:17
 tags: Spring Boot
+categories: Spring Boot
 ---
 
 日常开发过程中肯定会用到maven构建项目，用来管理依赖的jar文件，对于使用maven构建多module项目很多时候还是不怎么熟悉，这篇文章将带着大家从头开始搭建一个使用maven构建的多module项目，并集成常用的项目插件。

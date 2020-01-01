@@ -2,6 +2,7 @@
 title: Spring Cloud 配置中⼼
 date: 2019-04-06 11:32:30
 tags: Spring Cloud
+categories: Spring Cloud
 ---
 
 在系统架构中，和安全、⽇日志、监控等⾮非功能需求⼀一样，配置管理理也是⼀一种⾮非功能需求。配置中⼼心是整

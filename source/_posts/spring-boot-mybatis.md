@@ -2,6 +2,7 @@
 layout: post
 title: Spring Boot 2.x使用mybatis
 tags: Spring Boot
+categories: Spring Boot
 ---
 
 orm框架的本质是简化编程中操作数据库的编码，发展到现在基本上就剩两家了，一个是宣称可以不用写一句SQL的hibernate，一个是可以灵活调试动态sql的mybatis,两者各有特点，在企业级系统开发中可以根据需求灵活使用。

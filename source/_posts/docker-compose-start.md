@@ -2,6 +2,8 @@
 title: docker-compose-基础
 date: 2018-07-11 21:32:06
 tags: docker
+cover: false
+categories: docker
 ---
 
 ### docker-compose介绍

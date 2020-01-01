@@ -2,6 +2,7 @@
 title: Mac 修改MySQL编码集
 date: 2019-03-09 22:05:06
 tags: Mac
+categories: MacBook
 ---
 
 前两天因为Cisco的VPN坏了，一直用不了，所以重新还原了Mac，重新安装了所有的软件，其中就有MySQL-5.7.25。之前安装以后也是第一时间设置了MySQL的编码为utf8，这次新安装也再次记录一下修改步骤

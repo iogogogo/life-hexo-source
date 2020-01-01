@@ -2,6 +2,7 @@
 title: Vertica 基本操作语句
 date: 2019-03-14 10:51:43
 tags: Vertica
+categories: Vertica
 ---
 
 # 基本介绍

@@ -2,6 +2,7 @@
 title: Java8 新特性-Optional类
 date: 2019-02-13 11:15:36
 tags: Java8
+categories: Java8
 ---
 
 在Stream流式数据处理的文章中提到了`Optional`类，这是Java 8新增的一个类，用以解决程序中常见的`NullPointerException`异常问题。本篇文章将详细介绍`Optional`类，以及如何用它消除代码中的`null`检查。

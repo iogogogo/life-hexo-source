@@ -2,6 +2,7 @@
 title: Java8 新特性-lambda表达式
 date: 2019-02-13 11:10:25
 tags: Java8
+categories: Java8
 ---
 
 2014年3月发布的Java 8，有可能是Java版本更新中变化最大的一次。新的Java 8为开发者带来了许多重量级的新特性，包括Lambda表达式，流式数据处理，新的`Optional`类，新的日期和时间API等。这些新特性给Java开发者带来了福音，特别是Lambda表达式的支持，使程序设计更加简化。本篇文章将讨论行为参数化，Lambda表达式，函数式接口等特性。

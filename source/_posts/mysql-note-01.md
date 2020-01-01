@@ -2,6 +2,7 @@
 title: MySQL 常用语句
 date: 2019-03-14 16:21:43
 tags: MySQL
+categories: MySQL
 ---
 
 # MySQL 常用语句

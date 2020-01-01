@@ -2,6 +2,7 @@
 title: Spring Boot 整合MyBatis-Plus使用多数据源
 date: 2019-03-19 22:34:14
 tags: Spring Boot
+categories: Spring Boot
 ---
 
 项目中使用到了MySQL数据库存储配置数据，Vertica中存储指标数据，这样就有两个基于jdbc的数据源，所以需要做到动态配置与切换，并且项目采用了[mybatis-plus](https://mp.baomidou.com/)作为orm框架，所以使用mybatis-plus配置多数据源，并且配置hikari连接池，这也是Spring Boot-2.x自带的连接池，这里提供一个配置思路与方案，仅供参考。通过查看mybatis-plus的源码发现，该框架目前连接Vertica时会提示一个警告⚠️ 表示不支持该数据库，实际使用时可以直接使用mybatis执行sql的功能即可。

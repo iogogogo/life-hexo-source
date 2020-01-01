@@ -2,6 +2,7 @@
 title: mac使用parallels安装配置centos7
 date: 2018-08-10 17:54:40
 tags: Mac
+categories: MacBook
 ---
 
 ### 安装parallels

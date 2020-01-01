@@ -2,6 +2,7 @@
 title: 使用webpack构建vue项目
 date: 2019-10-20 14:53:43
 tags: Vue
+categories: Web开发
 ---
 
 # 安装nodejs

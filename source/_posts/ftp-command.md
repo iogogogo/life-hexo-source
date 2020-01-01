@@ -2,6 +2,7 @@
 title: FTP 常用命令
 date: 2019-12-12 10:13:15
 tags: FTP
+categories: 工具使用
 ---
 
 

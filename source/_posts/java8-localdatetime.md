@@ -2,6 +2,7 @@
 title: Java8 新特性-日期api
 date: 2019-02-13 10:32:01
 tags: Java8
+categories: Java8
 ---
 
 Java 8的一个新增的重要特性就是引入了新的时间和日期API，它们被包含在`java.time`包中。借助新的时间和日期API可以以更简洁的方法处理时间和日期。

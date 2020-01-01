@@ -2,6 +2,8 @@
 title: docke-安装
 date: 2018-07-10 22:31:39
 tags: docker
+cover: false
+categories: docker
 ---
 
 ### docker安装

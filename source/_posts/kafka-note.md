@@ -2,6 +2,7 @@
 title: kafka常用操作笔记
 date: 2018-07-30 11:36:44
 tags: kafka
+categories: Kafka
 ---
 
 ## 下载地址

@@ -2,6 +2,7 @@
 title: Elasticsearch 快速上手
 date: 2019-03-09 13:29:36
 tags: elasticsearch
+categories: elasticsearch
 ---
 
 # Elasticsearch 快速上手

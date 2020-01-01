@@ -2,6 +2,7 @@
 title: 服务网关 Zuul
 date: 2019-04-04 23:01:45
 tags: Spring Cloud
+categories: Spring Cloud
 ---
 
 # 服务网关 Zuul

@@ -2,6 +2,7 @@
 title: eclipse 使用 maven 构建web项目
 date: 2017-09-28 23:13:53
 tags: Java
+categories: 工具使用
 ---
 
 # 环境准备

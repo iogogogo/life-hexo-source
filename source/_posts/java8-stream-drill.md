@@ -2,6 +2,7 @@
 title: Java8 stream-实战
 date: 2019-03-06 17:03:21
 tags: Java8
+categories: Java8
 ---
 
 Java8在日常编码中感触最深的无非就是steam和lambda表达式以及新的时间api，在此之前，集合处理一直是不太方便且性能较低，第二个是时间api不好用，一般配合joda-time这个库配合使用，下面介绍一些在Java8中常用的stream处理

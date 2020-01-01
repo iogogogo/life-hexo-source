@@ -2,6 +2,7 @@
 title: Jenkins 后台进程
 date: 2019-02-13 09:58:53
 tags: Jenkins
+categories: Jenkins
 ---
 
 配置 Jenkins Job 的时候，after `mvn package` 用命令行 `nohup java -jar project-1.0-SNAPSHOT.jar > /dev/null 2>&1 & `起一个 spring-boot 项目，死活不生效。

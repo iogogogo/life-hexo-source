@@ -2,6 +2,7 @@
 title: Spring Boot 结合 Quartz 设置定时任务
 date: 2019-01-29 10:29:13
 tags: Spring Boot
+categories: Spring Boot
 ---
 
 ## Spring Boot 原生 @Scheduled

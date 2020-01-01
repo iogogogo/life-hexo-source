@@ -2,6 +2,7 @@
 title: 服务提供调用与熔断
 date: 2019-04-01 19:34:40
 tags: Spring Cloud
+categories: Spring Cloud
 ---
 
 # 服务提供调用与熔断

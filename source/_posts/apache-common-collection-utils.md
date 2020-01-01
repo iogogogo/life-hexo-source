@@ -2,6 +2,8 @@
 title: Apache CollectionUtils 常用方法总结
 date: 2019-03-01 10:09:21
 tags: Java
+cover: true
+categories: Java
 ---
 
 CollectionUtils在真实项目中，是一个非常好用的工具类，使用非常频繁。它可以使代码更加简洁和安全。

@@ -2,6 +2,7 @@
 title: Vertica 简介
 date: 2019-03-14 10:51:39
 tags: Vertica
+categories: Vertica
 ---
 
 Vertica是一款基于列存储的[MPP](https://baike.baidu.com/item/MPP) （massively parallel processing）架构的数据库。它可以支持存放多至PB（Petabyte）级别的结构化数据。Vertica是由关系数据库大师Michael Stonebraker(2014 年[图灵奖](https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645)获得者)所创建，于2011年被[惠普](https://baike.baidu.com/item/%E6%83%A0%E6%99%AE/275141)收购并成为其核心大数据平台软件。

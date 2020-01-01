@@ -2,6 +2,7 @@
 title: Windows下安装MySQL-5.7.17解压版
 date: 2018-08-10 17:59:42
 tags: MySQL
+categories: MySQL
 ---
 
 # 下载MySQL Community Server

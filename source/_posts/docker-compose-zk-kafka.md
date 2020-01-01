@@ -2,6 +2,8 @@
 title: 使用docker-compose构建kafka集群
 date: 2018-07-28 12:41:40
 tags: docker
+cover: false
+categories: docker
 ---
 
 

@@ -2,6 +2,7 @@
 title: MySQL 导出表结构和表数据 mysqldump用法
 date: 2019-03-22 22:51:12
 tags: MySQL
+categories: MySQL
 ---
 
 命令行下具体用法如下：
