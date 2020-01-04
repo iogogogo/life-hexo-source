@@ -2,7 +2,6 @@
 title: Comparable和Comparator的区别
 date: 2019-02-17 11:27:48
 tags: Java
-cover: true
 categories: Java
 ---
 
