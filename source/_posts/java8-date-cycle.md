@@ -120,10 +120,10 @@ System.out.println("本月结束时间:" + endTime);
 
 获取季度的开始和结束Java8并没有提供直接的api使用，但是我们可以使用`TemporalQuery`进行自定义查询获取，而且季度和月度以及周有些许不同，每年的季度开始和结束都是固定的
 
-- 一季度的开始始终是每年的`01.01-03.31`
-- 二季度的开始始终是每年的`04.01-06.30`
-- 三季度的开始始终是每年的`07.01-09.30`
-- 四季度的开始始终是每年的`10.01-12.31`
+- 一季度的始终是每年的`01.01-03.31`
+- 二季度的始终是每年的`04.01-06.30`
+- 三季度的始终是每年的`07.01-09.30`
+- 四季度的始终是每年的`10.01-12.31`
 
 
 
@@ -138,11 +138,12 @@ System.out.println("本月结束时间:" + endTime);
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalQuery;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by tao.zeng on 2020-01-03.
@@ -205,6 +206,15 @@ public class QuarterCycle {
         return 0;
     }
 
+
+    public Tuple2<LocalDateTime, LocalDateTime> getQuarterRange(LocalDateTime dateTime, int quarter) {
+        return getQuarterRange(dateTime.getYear(), quarter);
+    }
+
+    public Tuple2<LocalDateTime, LocalDateTime> getQuarterRange(LocalDate dateTime, int quarter) {
+        return getQuarterRange(dateTime.getYear(), quarter);
+    }
+
     /**
      * 获取某年某季度的第一天和最后一天
      *
@@ -212,77 +222,34 @@ public class QuarterCycle {
      * @param quarter 第几季度
      */
     public Tuple2<LocalDateTime, LocalDateTime> getQuarterRange(int year, int quarter) {
-        LocalDateTime dateTime, startTime, endTime;
-        // 设置本年的季
-        Calendar calendar;
+        LocalDateTime startTime, endTime;
         switch (quarter) {
             case 1:
-                // 本年到现在经过了一个季度，在加上前4个季度
-                calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, 3);
-                calendar.set(Calendar.DATE, 1);
-                calendar.add(Calendar.DATE, -1);
-
-                dateTime = parse(calendar.getTime());
-                startTime = LocalDateTime.of(dateTime.getYear(), 1, 1, 0, 0);
-                endTime = dateTime.with(LocalTime.MAX);
-
+                // 01.01-03.31
+                startTime = LocalDateTime.of(year, 1, 1, 0, 0).with(LocalTime.MIN);
+                endTime = LocalDateTime.of(year, 3, 31, 23, 59, 59).with(LocalTime.MAX);
                 return Tuple.of(startTime, endTime);
             case 2:
-                // 本年到现在经过了二个季度，在加上前三个季度
-                calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, 6);
-                calendar.set(Calendar.DATE, 1);
-                calendar.add(Calendar.DATE, -1);
-
-                dateTime = parse(calendar.getTime());
-                startTime = LocalDateTime.of(dateTime.getYear(), 4, 1, 0, 0);
-                endTime = dateTime.with(LocalTime.MAX);
-
+                // 04.01-06.30
+                startTime = LocalDateTime.of(year, 4, 1, 0, 0).with(LocalTime.MIN);
+                endTime = LocalDateTime.of(year, 6, 30, 23, 59, 59).with(LocalTime.MAX);
                 return Tuple.of(startTime, endTime);
             case 3:
-                // 本年到现在经过了三个季度，在加上前二个季度
-                calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, 9);
-                calendar.set(Calendar.DATE, 1);
-                calendar.add(Calendar.DATE, -1);
-
-                dateTime = parse(calendar.getTime());
-                startTime = LocalDateTime.of(dateTime.getYear(), 7, 1, 0, 0);
-                endTime = dateTime.with(LocalTime.MAX);
-
+                // 07.01-09.30
+                startTime = LocalDateTime.of(year, 7, 1, 0, 0).with(LocalTime.MIN);
+                endTime = LocalDateTime.of(year, 9, 30, 23, 59, 59).with(LocalTime.MAX);
                 return Tuple.of(startTime, endTime);
 
             case 4:
-                // 本年到现在经过了四个季度，在加上前一个季度
-                calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-
-                dateTime = parse(calendar.getTime());
-                startTime = LocalDateTime.of(dateTime.getYear(), 10, 1, 0, 0);
-                endTime = LocalDateTime.of(dateTime.getYear(), 12, 31, 23, 59, 59);
+                // 10.01-12.31
+                startTime = LocalDateTime.of(year, 10, 1, 0, 0);
+                endTime = LocalDateTime.of(year, 12, 31, 23, 59, 59);
 
                 return Tuple.of(startTime, endTime);
         }
         return null;
     }
-
-    /**
-     * Date 转换成 LocalDateTime
-     *
-     * @param date
-     * @return
-     */
-    private LocalDateTime parse(Date date) {
-        Instant instant = date.toInstant();
-        ZoneId zone = ZoneId.systemDefault();
-        return LocalDateTime.ofInstant(instant, zone);
-    }
 }
-
 ```
 
 
@@ -298,7 +265,7 @@ System.out.println("当前时间:" + now + "\n");
 int quarter = quarterCycle.getQuarter(now);
 System.out.println("当前季度:" + quarter + "\n");
 
-Tuple2<LocalDateTime, LocalDateTime> tuple2 = quarterCycle.getQuarterRange(now.getYear(), quarter);
+Tuple2<LocalDateTime, LocalDateTime> tuple2 = quarterCycle.getQuarterRange(now, quarter);
 System.out.println("当前季度开始和结束时间:" + tuple2 + "\n");
 
 // 输出结果
