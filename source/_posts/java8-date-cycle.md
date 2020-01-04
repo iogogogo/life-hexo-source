@@ -129,7 +129,7 @@ System.out.println("本月结束时间:" + endTime);
 
 废话不多说，直接上代码，先定义了一个`QuarterCycle`类
 
-`getQuarterRange`方法中使用了`Tuple`，主要是为了方便存储开始和结束时间，也可以使用`String[]`存储，并没有特殊意义
+`getQuarterRange`方法中使用了`Tuple`，主要是为了方便存储开始和结束时间，也可以使用`LocalDateTime[]`存储，并没有特殊意义
 
 ### QuarterCycle
 
