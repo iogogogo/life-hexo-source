@@ -333,3 +333,9 @@ public class MetricConsumer {
 ## 总结
 
 本文主要介绍了Spring Boot与kafka 的整合，日常开发中除了kafka还有其他的各种消息中间件，整合方式大同小异，毕竟Spring Boot已经帮我们封装的很好了，唯一需要注意的就是注解属性的动态注入，这里需要使用SPEL表达式。
+
+
+
+
+
+完整代码：https://github.com/iogogogo/life-example/tree/master/example-kafka
