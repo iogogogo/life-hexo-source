@@ -222,7 +222,7 @@ Query OK, 0 rows affected (0.00 sec)
 mysql>
 ```
 
-
+当设置完host=%以后，就可以使用我们熟悉`navicat`或者`sequel`进行连接了
 
 ## 修改MySQL默认编码为`utf8`
 
