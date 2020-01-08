@@ -19,7 +19,9 @@ MySQL安装需要准备root账户
 >
 > 执行`rpm -qa | grep mysql`检查需要卸载的包
 >
->  执行`rpm -qa | grep mariadb`检查需要卸载的包，如有则进行卸载
+>  执行`rpm -qa | grep mariadb`检查需要卸载的包
+>
+> 如发现存`mariadb`与`mysql`在则使用`rpm -e --nodeps xxx`进行卸载
 
 ```SHELL
 [root@vm31_123 mysql-5.7.28-1.el7.x86_64]# rpm -qa | grep mariadb # 检查mariadb
@@ -137,7 +139,7 @@ systemctl status mysqld
 输出日志
 
 ```verilog
-[root@vm31_123 mysql-5.7.28-1.el7.x86_64]# service mysqld status
+[root@vm31_123 mysql-5.7.28-1.el7.x86_64]# systemctl status mysqld
 Redirecting to /bin/systemctl status mysqld.service
 ● mysqld.service - MySQL Server
    Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
@@ -175,7 +177,7 @@ sudo cat /var/log/mysqld.log |grep 'temporary password'
 
 输入`mysql -uroot -p`以后会提示我们输入密码，这时候输入刚刚生成的零时密码`;2o1:2h%!ruT`即可登录
 
-接下来就可以使用`ALTER USER 'root'@'localhost' IDENTIFIED BY 'MySQL@123';`（此处MySQL@123为数据库密码，根据用户设置自行更改）
+接下来就可以使用`ALTER USER 'root'@'localhost' IDENTIFIED BY 'MySQL@123';`（此处MySQL@123为数据库密码，根据需求自行设置更改）
 
 ```verilog
 [root@vm31_123 mysql-5.7.28-1.el7.x86_64]# mysql -uroot -p
