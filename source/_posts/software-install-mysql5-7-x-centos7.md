@@ -15,7 +15,11 @@ MySQL安装需要准备root账户
 
 ### 卸载MariaDB相关组件
 
-> 由于MariaDB与MySQL类似，在安装时候会提示与已经安装的RPM包有冲突，因此需要卸载一些包含有MariaDB关键字的RPM包。 执行`rpm -qa | grep mysql`检查需要卸载的包 执行`rpm -qa | grep mariadb`检查需要卸载的包，如有则进行卸载
+> 由于MariaDB与MySQL类似，在安装时候会提示与已经安装的RPM包有冲突，因此需要卸载一些包含有MariaDB关键字的RPM包。 
+>
+> 执行`rpm -qa | grep mysql`检查需要卸载的包
+>
+>  执行`rpm -qa | grep mariadb`检查需要卸载的包，如有则进行卸载
 
 ```SHELL
 [root@vm31_123 mysql-5.7.28-1.el7.x86_64]# rpm -qa | grep mariadb # 检查mariadb
