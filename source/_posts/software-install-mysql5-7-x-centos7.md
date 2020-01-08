@@ -21,7 +21,7 @@ MySQL安装需要准备root账户
 >
 >  执行`rpm -qa | grep mariadb`检查需要卸载的包
 >
-> 如发现存`mariadb`与`mysql`在则使用`rpm -e --nodeps xxx`进行卸载
+> 如发现存在`mariadb`与`mysql`则使用`rpm -e --nodeps xxx`进行卸载
 
 ```SHELL
 [root@vm31_123 mysql-5.7.28-1.el7.x86_64]# rpm -qa | grep mariadb # 检查mariadb
