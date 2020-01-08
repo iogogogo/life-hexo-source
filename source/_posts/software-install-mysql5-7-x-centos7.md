@@ -140,22 +140,29 @@ systemctl status mysqld
 
 ```verilog
 [root@vm31_123 mysql-5.7.28-1.el7.x86_64]# systemctl status mysqld
-Redirecting to /bin/systemctl status mysqld.service
 ● mysqld.service - MySQL Server
    Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
-   Active: active (running) since 三 2020-01-08 20:21:12 CST; 35s ago
+   Active: active (running) since 三 2020-01-08 21:02:06 CST; 6s ago
      Docs: man:mysqld(8)
            http://dev.mysql.com/doc/refman/en/using-systemd.html
-  Process: 19471 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid $MYSQLD_OPTS (code=exited, status=0/SUCCESS)
-  Process: 19408 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
- Main PID: 19474 (mysqld)
+  Process: 22483 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid $MYSQLD_OPTS (code=exited, status=0/SUCCESS)
+  Process: 22450 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 22486 (mysqld)
     Tasks: 27
-   Memory: 324.4M
+   Memory: 193.8M
    CGroup: /system.slice/mysqld.service
-           └─19474 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
+           └─22486 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
 
-1月 08 20:21:04 vm31_123 systemd[1]: Starting MySQL Server...
-1月 08 20:21:12 vm31_123 systemd[1]: Started MySQL Server.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.468981Z 0 [Note] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.469015Z 0 [Note] Skipping generation of SSL certificates as certificate files are present in data directory.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.470439Z 0 [Warning] CA certificate ca.pem is self signed.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.470543Z 0 [Note] Skipping generation of RSA key pair as key files are present in data directory.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.471329Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.471412Z 0 [Note] IPv6 is available.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.471436Z 0 [Note]   - '::' resolves to '::';
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.471467Z 0 [Note] Server socket created on IP: '::'.
+1月 08 21:02:06 vm31_123 mysqld[22483]: 2020-01-08T13:02:06.485478Z 0 [Note] Event Scheduler: Loaded 0 events
+1月 08 21:02:06 vm31_123 systemd[1]: Started MySQL Server.
 ```
 
 ### 修改默认密码
