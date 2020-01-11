@@ -84,7 +84,7 @@ docker run -dit --name redis -p 6379:6379 redis:latest
 
 ### 配置文件
 
-`spring.redis`开头的都是Spring Boot自动注入需要加载的配置，我们为了在使用一个db2，这里加了一个`spring.redis-db2`开头的配置
+`spring.redis`开头的都是Spring Boot自动注入需要加载的配置，我们为了在使用一个db2，这里加了一个`spring.redis-db-2`开头的配置
 
 ```yaml
 spring:
@@ -100,7 +100,7 @@ spring:
         max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
         max-idle: 8 # 连接池中的最大空闲连接 默认 8
         min-idle: 0 # 连接池中的最小空闲连接 默认 0
-  redis-db2:
+  redis-db-2:
     database: 2
     host: 127.0.0.1
     port: 6379
@@ -146,33 +146,33 @@ import java.time.Duration;
 /**
  * Created by tao.zeng on 2020-01-10.
  *
- * @Value("${spring.redis-db2.database}") int database,
- * @Value("${spring.redis-db2.host}") String host,
- * @Value("${spring.redis-db2.port}") int port,
- * @Value("${spring.redis-db2.password}") String password,
- * @Value("${spring.redis-db2.timeout}") long timeout,
- * @Value("${spring.redis-db2.lettuce.pool.max-active}") int maxActive,
- * @Value("${spring.redis-db2.lettuce.pool.max-wait}") int maxWait,
- * @Value("${spring.redis-db2.lettuce.pool.max-idle}") int maxIdle,
- * @Value("${spring.redis-db2.lettuce.pool.min-idle}") int minIdle
+ * @Value("${spring.redis-db-2.database}") int database,
+ * @Value("${spring.redis-db-2.host}") String host,
+ * @Value("${spring.redis-db-2.port}") int port,
+ * @Value("${spring.redis-db-2.password}") String password,
+ * @Value("${spring.redis-db-2.timeout}") long timeout,
+ * @Value("${spring.redis-db-2.lettuce.pool.max-active}") int maxActive,
+ * @Value("${spring.redis-db-2.lettuce.pool.max-wait}") int maxWait,
+ * @Value("${spring.redis-db-2.lettuce.pool.max-idle}") int maxIdle,
+ * @Value("${spring.redis-db-2.lettuce.pool.min-idle}") int minIdle
  */
 @EnableCaching
 @Configuration
 public class RedisConfigure {
 
     @Bean
-    public RedisTemplate redisTemplateDB2(Tuple6<RedisStandaloneConfiguration, Long, Integer, Integer, Integer, Integer> redisConfigurationDB2) {
+    public RedisTemplate redisTemplateDB_2(Tuple6<RedisStandaloneConfiguration, Long, Integer, Integer, Integer, Integer> redisConfigurationDB_2) {
 
-        Long timeout = redisConfigurationDB2._2();
+        Long timeout = redisConfigurationDB_2._2();
 
-        int maxActive = redisConfigurationDB2._3(),
-                maxWait = redisConfigurationDB2._4(),
-                maxIdle = redisConfigurationDB2._5(),
-                minIdle = redisConfigurationDB2._6();
+        int maxActive = redisConfigurationDB_2._3(),
+                maxWait = redisConfigurationDB_2._4(),
+                maxIdle = redisConfigurationDB_2._5(),
+                minIdle = redisConfigurationDB_2._6();
 
 
         /* ========= 基本配置 ========= */
-        RedisStandaloneConfiguration standaloneConfiguration = redisConfigurationDB2._1();
+        RedisStandaloneConfiguration standaloneConfiguration = redisConfigurationDB_2._1();
 
 
         /* ========= 连接池通用配置 ========= */
@@ -278,15 +278,15 @@ public class RedisConfigure {
      */
     @Bean
     public Tuple6<RedisStandaloneConfiguration, Long, Integer, Integer, Integer, Integer>
-    redisConfigurationDB2(@Value("${spring.redis-db2.database}") int database,
-                          @Value("${spring.redis-db2.password}") String password,
-                          @Value("${spring.redis-db2.host}") String host,
-                          @Value("${spring.redis-db2.port}") int port,
-                          @Value("${spring.redis-db2.timeout}") long timeout,
-                          @Value("${spring.redis-db2.lettuce.pool.max-active}") int maxActive,
-                          @Value("${spring.redis-db2.lettuce.pool.max-wait}") int maxWait,
-                          @Value("${spring.redis-db2.lettuce.pool.max-idle}") int maxIdle,
-                          @Value("${spring.redis-db2.lettuce.pool.min-idle}") int minIdle) {
+    redisConfigurationDB_2(@Value("${spring.redis-db-2.database}") int database,
+                           @Value("${spring.redis-db-2.password}") String password,
+                           @Value("${spring.redis-db-2.host}") String host,
+                           @Value("${spring.redis-db-2.port}") int port,
+                           @Value("${spring.redis-db-2.timeout}") long timeout,
+                           @Value("${spring.redis-db-2.lettuce.pool.max-active}") int maxActive,
+                           @Value("${spring.redis-db-2.lettuce.pool.max-wait}") int maxWait,
+                           @Value("${spring.redis-db-2.lettuce.pool.max-idle}") int maxIdle,
+                           @Value("${spring.redis-db-2.lettuce.pool.min-idle}") int minIdle) {
 
         RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration();
         standaloneConfiguration.setDatabase(database);
@@ -302,12 +302,11 @@ public class RedisConfigure {
 
     }
 }
-
 ```
 
 
 
-这个配置有点长，但是都有注释，而且这里也用到了上篇文章中讲到的`tuple`（在方法有多个返回值时，元组真香）,其实就已经可以使用两个不同的`RedisTemplate`了，这时候我们在启动项目时分别注入`redisTemplate`和`redisTemplateDB2`，别问我为啥名字是这两货。
+这个配置有点长，但是都有注释，而且这里也用到了上篇文章中讲到的`tuple`（在方法有多个返回值时，元组真香）,其实就已经可以使用两个不同的`RedisTemplate`了，这时候我们在启动项目时分别注入`redisTemplate`和`redisTemplateDB_2`，别问我为啥名字是这两货。
 
 
 
@@ -338,7 +337,7 @@ public class RedisApplication implements CommandLineRunner {
     private RedisTemplate redisTemplate;
 
     @Autowired
-    private RedisTemplate redisTemplateDB2;
+    private RedisTemplate redisTemplateDB_2;
 
     public static void main(String[] args) {
         SpringApplication.run(RedisApplication.class, args);
@@ -350,8 +349,8 @@ public class RedisApplication implements CommandLineRunner {
         redisTemplate.opsForValue().set("iogogogo", "redisTemplate save value");
 
         
-        log.info("redisTemplateDB2:{}", redisTemplateDB2);
-        redisTemplateDB2.opsForHash().put("iogogogo", "iogogogo-hash", "redisTemplateDB2 save value");
+        log.info("redisTemplateDB_2:{}", redisTemplateDB2);
+        redisTemplateDB2.opsForHash().put("iogogogo", "iogogogo-hash", "redisTemplateDB_2 save value");
     }
 }
 
@@ -361,9 +360,9 @@ public class RedisApplication implements CommandLineRunner {
 
 ![redisTemplate](/images/spring-boot/redis/redisTemplate.png)
 
-- redisTemplateDB2
+- redisTemplateDB_2
 
-![redisTemplateDB2](/images/spring-boot/redis/redisTemplateDB2.png)
+![redisTemplateDB_2](/images/spring-boot/redis/redisTemplateDB2.png)
 
 - 登录redis查看两个Template存储的string和hash数据
 
@@ -491,7 +490,7 @@ public class RedisApplication implements CommandLineRunner {
       private RedisTemplate redisTemplate;
   
       @Autowired
-      private RedisTemplate redisTemplateDB2;
+      private RedisTemplate redisTemplateDB_2;
   
       private RedisOperations redisOperations, redisDB2Operations;
   
@@ -504,7 +503,7 @@ public class RedisApplication implements CommandLineRunner {
   
       public RedisOperations redisDB2Operations() {
           if (redisDB2Operations == null) {
-              redisDB2Operations = new RedisOperations(redisTemplateDB2);
+              redisDB2Operations = new RedisOperations(redisTemplateDB_2);
           }
           return redisDB2Operations;
       }
@@ -540,7 +539,7 @@ public class RedisApplication implements CommandLineRunner {
     private RedisTemplate redisTemplate;
 
     @Autowired
-    private RedisTemplate redisTemplateDB2;
+    private RedisTemplate redisTemplateDB_2;
 
     @Autowired
     private RedisHandler redisHandler;
@@ -555,8 +554,8 @@ public class RedisApplication implements CommandLineRunner {
         redisTemplate.opsForValue().set("iogogogo", "redisTemplate save value");
 
 
-        log.info("redisTemplateDB2:{}", redisTemplateDB2);
-        redisTemplateDB2.opsForHash().put("iogogogo", "iogogogo-hash", "redisTemplateDB2 save value");
+        log.info("redisTemplateDB_2:{}", redisTemplateDB_2);
+        redisTemplateDB_2.opsForHash().put("iogogogo", "iogogogo-hash", "redisTemplateDB_2 save value");
 
 
         // 通过统一的RedisOperations对Redis进行操作
@@ -569,7 +568,6 @@ public class RedisApplication implements CommandLineRunner {
         log.info("redisDB2Operations redisTemplate:{}", redisDB2Operations.redisTemplate());
     }
 }
-
 ```
 
 启动日志
