@@ -43,7 +43,7 @@ categories: Spring
 
 **Spring并不直接管理事务，而是提供了多种事务管理器** ，他们将事务管理的职责委托给Hibernate或者JTA等持久化机制所提供的相关平台框架的事务来实现。 Spring事务管理器的接口是： **org.springframework.transaction.PlatformTransactionManager** ，通过这个接口，Spring为各个平台如JDBC、Hibernate等都提供了对应的事务管理器，但是具体的实现就是各个平台自己的事情了。
 
-![PlatformTransactionManager](/images/spring-platformTransactionManager.jpeg)
+![PlatformTransactionManager](/images/spring/spring-platformTransactionManager.png)
 
 
 
@@ -60,7 +60,7 @@ categories: Spring
 
 事务管理器接口 **PlatformTransactionManager** 通过 **getTransaction(TransactionDefinition definition)** 方法来得到一个事务，这个方法里面的参数是 **TransactionDefinition类** ，这个类就定义了一些基本的事务属性。
 
-![TransactionDefinition](/images/spring-transactionDefinition.jpeg)
+![TransactionDefinition](/images/spring/spring-transactionDefinition.jpeg)
 
 
 
@@ -120,11 +120,11 @@ categories: Spring
 
 `PlatformTransactionManager.getTransaction(…) `方法返回一个 `TransactionStatus` 对象。返回的`TransactionStatus` 对象可能代表一个新的或已经存在的事务（如果在当前调用堆栈有一个符合条件的事务）。
 
-![TransactionStatus-diagram](/images/spring-transactionStatus-diagram.jpeg)
+![TransactionStatus-diagram](/images/spring/spring-transactionStatus-diagram.jpeg)
 
-![TransactionStatus](/images/spring-transactionStatus.jpeg)
+![TransactionStatus](/images/spring/spring-transactionStatus.jpeg)
 
-![TransactionExecution](/images/spring-transactionExecution.jpeg)
+![TransactionExecution](/images/spring/spring-transactionExecution.jpeg)
 
 
 
