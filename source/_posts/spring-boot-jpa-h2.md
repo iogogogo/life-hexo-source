@@ -52,7 +52,7 @@ categories: Spring Boot
 ```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-data-jdbc</artifactId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 <dependency>
   <groupId>com.h2database</groupId>
@@ -158,14 +158,16 @@ jpa中配置了数据库方言`database-platform`，显示sql等配置
 ## 实体类
 
 ```java
+package com.example.h2.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -173,9 +175,10 @@ import java.time.LocalDateTime;
  * Created by tao.zeng on 2020-01-05.
  */
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table("user_info")
+@Table(name = "user_info")
 public class UserEntity implements Serializable {
 
     @Id
@@ -183,7 +186,7 @@ public class UserEntity implements Serializable {
 
     private String name;
 
-    @Column("birthday")
+    @Column(name = "birthday")
     private LocalDateTime birthday;
 
     private String remark;
@@ -201,13 +204,15 @@ public class UserEntity implements Serializable {
 ## repository
 
 ```java
+package com.example.h2.repository;
+
 import com.example.h2.entity.UserEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Created by tao.zeng on 2020-01-05.
  */
-public interface UserRepository extends CrudRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 }
 
 ```
