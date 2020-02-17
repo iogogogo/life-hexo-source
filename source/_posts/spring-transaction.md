@@ -581,3 +581,8 @@ public class TransferServiceImpl implements TransferService {
 
 以上介绍了一下spring中的事务接口和事务的传播行为以及隔离级别，也通过转账的例子演示了有事务和没有事务的区别，再有了`spring boot`以后，基本都是使用注解的形式进行事务处理。
 
+
+
+
+
+源码地址：https://github.com/iogogogo/life-example/tree/master/example-transaction
