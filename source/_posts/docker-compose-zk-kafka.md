@@ -362,7 +362,7 @@ bash-4.4# ./bin/kafka-console-producer.sh --broker-list 192.168.1.6:9092 --topic
 >123
 >测试数据
 >test data
->小花脸
+>阿牛
 >
 ```
 
@@ -375,7 +375,7 @@ bash-4.4# ./bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.6:9093 --
 123
 测试数据
 test data
-小花脸
+阿牛
 ```
 - 消费者zk-kafka_kafka_3，zk使用9094端口
 
@@ -386,7 +386,7 @@ bash-4.4# ./bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.6:9094 --
 123
 测试数据
 test data
-小花脸
+阿牛
 ```
 至此，zookeeper和kakfa集群搭建到此结束
 

@@ -80,7 +80,7 @@ create table user_info
 
 ```sql
 insert into user_info
-values (1, '小花脸', '2020-01-05 15:40:00', '哈哈哈');
+values (1, '阿牛', '2020-01-05 15:40:00', '哈哈哈');
 ```
 
 
@@ -255,7 +255,7 @@ public class H2DbApplicationTests {
     @Test
     public void test() {
         // 新增数据
-        UserEntity entity = userRepository.save(new UserEntity("小花脸" + UUID.randomUUID().toString(), LocalDateTime.now(), "新增测试"));
+        UserEntity entity = userRepository.save(new UserEntity("阿牛" + UUID.randomUUID().toString(), LocalDateTime.now(), "新增测试"));
         log.info("新增结果:{}\n", entity);
 
         // 修改数据
@@ -290,7 +290,7 @@ public class H2DbApplicationTests {
 测试结果如下
 
 ```shell
-2020-01-05 18:07:40.499  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : 新增结果:UserEntity(id=2, name=小花脸33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
+2020-01-05 18:07:40.499  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : 新增结果:UserEntity(id=2, name=阿牛33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
 
 2020-01-05 18:07:40.527  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : 按照id修改结果:UserEntity(id=1, name=哈哈哈哈, birthday=2020-01-05T18:07:40.500, remark=修改以后的结果)
 
@@ -298,10 +298,10 @@ public class H2DbApplicationTests {
 
 2020-01-05 18:07:40.578  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : 查询所有
 2020-01-05 18:07:40.586  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : item:UserEntity(id=1, name=哈哈哈哈, birthday=2020-01-05T18:07:40.500, remark=修改以后的结果)
-2020-01-05 18:07:40.586  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : item:UserEntity(id=2, name=小花脸33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
+2020-01-05 18:07:40.586  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : item:UserEntity(id=2, name=阿牛33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
 
 2020-01-05 18:07:40.602  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : 删除id=1的数据以后
-2020-01-05 18:07:40.604  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : item:UserEntity(id=2, name=小花脸33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
+2020-01-05 18:07:40.604  INFO 28214 --- [           main] com.iogogogo.h2.H2DbApplicationTests     : item:UserEntity(id=2, name=阿牛33dc0a6d-29cd-4e79-9ae4-ad64b1588e69, birthday=2020-01-05T18:07:40.383, remark=新增测试)
 
 ```
 

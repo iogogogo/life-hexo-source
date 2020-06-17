@@ -106,9 +106,9 @@ public void testEqual() {
     }
 
     List<Person> boy1 = new ArrayList<>();
-    boy1.add(new Boy("小花脸"));
+    boy1.add(new Boy("阿牛"));
     List<Person> boy2 = new ArrayList<>();
-    boy2.add(new Boy("小花脸"));
+    boy2.add(new Boy("阿牛"));
 
     // 比较集合中不同对象 false
     log.info("isEqualCollection:{}", CollectionUtils.isEqualCollection(boy1, boy2));

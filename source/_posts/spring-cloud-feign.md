@@ -298,13 +298,13 @@ hello sharplook - 7359bd06-8471-4a5d-aa04-7b25b7c13ddb
 浏览器输入调用者路由地址，并传递相应的参数
 
 ```html
-http://localhost:8081/api/consumer/index?name=小花脸
+http://localhost:8081/api/consumer/index?name=阿牛
 ```
 
 返回结果
 
 ```json
-hello 小花脸 - f012cf85-9a04-4ae0-b879-42fa860d5015
+hello 阿牛 - f012cf85-9a04-4ae0-b879-42fa860d5015
 ```
 
 说明客户端已经成功的通过feign调用了远程服务，并且将结果返回到了浏览器。
@@ -334,25 +334,25 @@ java -jar service-producer-0.0.1.jar --server.port=8082 --service.instance.name=
 然后次使用服务消费者去调用
 
 ```
-http://localhost:8081/api/consumer/index?name=小花脸
+http://localhost:8081/api/consumer/index?name=阿牛
 ```
 
 第一次返回结果：
 
 ```
-这是服务器1 hello 小花脸 - c280ad85-8475-464e-9856-151c70b8970d
+这是服务器1 hello 阿牛 - c280ad85-8475-464e-9856-151c70b8970d
 ```
 
 第二次返回结果：
 
 ```
-这是服务器2 hello 小花脸 - 4e798f0a-7fda-4063-bb33-bbaaad106f05
+这是服务器2 hello 阿牛 - 4e798f0a-7fda-4063-bb33-bbaaad106f05
 ```
 
 第三次返回结果：
 
 ```
-这是服务器3 hello 小花脸 - a318c789-9765-4119-a991-b77c72a19ba3
+这是服务器3 hello 阿牛 - a318c789-9765-4119-a991-b77c72a19ba3
 ```
 
 

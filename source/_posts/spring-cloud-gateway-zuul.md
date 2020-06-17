@@ -122,7 +122,7 @@ java -jar service-producer-0.0.1.jar --server.port=8082 --service.instance.name=
 访问
 
 ```html
-http://localhost:8888/producer/api/index?name=小花脸
+http://localhost:8888/producer/api/index?name=阿牛
 ```
 
 会发现自动负载均衡，将每个请求分发到不同的服务，至此，整个zuul和微服务整合也就完成了。
