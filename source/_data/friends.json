@@ -1,9 +1,16 @@
 [
     {
         "avatar": "https://www.gravatar.com/avatar/e5b03f7abe40000bd5cb919dd8200202?s=110",
-        "name": "Cloud Strife        ",
+        "name": "Cloud Strife",
         "introduction": "make the world a better place",
         "url": "https://www.bitlogs.tech/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://www.gravatar.com/avatar/e5b03f7abe40000bd5cb919dd8200202?s=110",
+        "name": "longzlの博客",
+        "introduction": "人生实际上是在无知和觉醒之间的一场斗争",
+        "url": "https://longzzzl.gitee.io/",
         "title": "前去学习"
     }
 ]
