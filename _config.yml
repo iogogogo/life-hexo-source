@@ -77,11 +77,18 @@ theme: hexo-theme-matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://github.com/iogogogo/iogogogo.github.io.git
-  branch: master
+# deploy:
+#   type: git
+#   repo: https://github.com/iogogogo/iogogogo.github.io.git
+#   branch: master
 
+deploy:  
+  - type: git
+    repository: https://github.com/iogogogo/iogogogo.github.io.git
+    branch: master
+  - type: git
+    repository: git@gitee.com:iogogogo/iogogogo.git
+    branch: master
 
 ## 新增插件 start
 prism_plugin:
