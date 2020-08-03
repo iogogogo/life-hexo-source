@@ -1,9 +1,9 @@
 ---
 title: javac编译java文件
 date: 2019-11-05 23:32:45
-tags: java
+tags: Java
 cover: true
-categories: java
+categories: Java
 ---
 # javac编译java文件
 
