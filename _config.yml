@@ -84,10 +84,10 @@ theme: hexo-theme-matery
 
 deploy:  
   - type: git
-    repository: https://github.com/iogogogo/iogogogo.github.io.git
+    repository: https://gitee.com/iogogogo/iogogogo.git
     branch: master
   - type: git
-    repository: https://gitee.com/iogogogo/iogogogo.git
+    repository: https://github.com/iogogogo/iogogogo.github.io.git
     branch: master
 
 ## 新增插件 start
